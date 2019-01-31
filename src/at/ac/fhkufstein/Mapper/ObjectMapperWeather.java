@@ -2,6 +2,7 @@ package at.ac.fhkufstein.Mapper;
 
 
 import at.ac.fhkufstein.Weather.Weather;
+import at.ac.fhkufstein.Weather.Weather_Aufgabe5;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,6 +30,19 @@ public class ObjectMapperWeather {
         } catch (JsonMappingException e){
             e.printStackTrace();
         } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    public void writeJson_Aufgabe5(Weather_Aufgabe5 w) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            String jsonString = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(w);
+            System.out.println("JSON String: " + jsonString);
+        } catch (JsonGenerationException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
